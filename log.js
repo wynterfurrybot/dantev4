@@ -1,5 +1,3 @@
-// More to come, logging in JS due to python not supporting logging.
-
 // Logging javascript file
 
 // Python can't log changes, but coffee can.
@@ -25,39 +23,29 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
 
-client.on('message', msg => {
-// Log to new messages table
-
-if(msg.attachments)
-{
-  var a = msg.attachments;
-  a.forEach(function (b)
-{
-  msg.content = msg.content + " -- " + b.url;
-})
-}
-
-con.query("INSERT INTO messages (id, content, guild_id, author) VALUES(?, ?, ?, ?)", [msg.id, msg.content, msg.guild.id, msg.author.id], async function(err, result, fields) {
-console.log("1 record inserted");
-// send to local message channel
-});
-});
-
 
 client.on("messageDelete", (messageDelete) => {
-  // Log to logging Channel Only
-
-  if(msg.attachments)
+  if (messageDelete.author.bot){return;}
+  if(messageDelete.attachments)
   {
-    var a = msg.attachments;
+    var a = messageDelete.attachments;
     a.forEach(function (b)
   {
-    msg.content = msg.content + " -- " + b.url;
+    messageDelete.content = messageDelete.content + " -- " + b.url;
   })
   }
+  // send to local message channel
+  var channel = messageDelete.guild.channels.find(channel => channel.name === "message_logs");
+
+channel.send({embed: {
+  color: 16726088,
+  description: "A message sent by " + messageDelete.author.username + " was removed! \n\nContent: \n" + messageDelete.content ,
+}});
+
 });
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
+  if (newMessage.author.bot){return;}
   if(newMessage.attachments)
   {
     var a = newMessage.attachments;
@@ -66,50 +54,65 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     newMessage.content = newMessage.content + " -- " + b.url;
   })
   }
-  con.query("INSERT INTO edithistory (id, oldcontent, newcontent) VALUES(?, ?, ?)", [oldMessage.id, oldMessage.content, newMessage.content], async function(err, result, fields) {
-  console.log("1 record inserted");
-
-  // send to local message channel
-  });
+  var channel = newMessage.guild.channels.find(channel => channel.name === "message_logs");
+  channel.send({embed: {
+    color: 3447003,
+    description: "A message sent by " + newMessage.author.username + " was edited! \n\nOld message: \n" + oldMessage.content + "\nNew message: \n" + newMessage.content,
+  }});
 });
 
 client.on('channelCreate', channel => {
+  var channel = channel.guild.channels.find(channel => channel.name === "channel_logging");
+  channel.send({embed: {
+    color: 3447003,
+    description: "A new channel (" + channel.name + ") was created!",
+  }});
 });
 
 client.on('channelDelete', channel => {
-});
-
-client.on('channelDelete', channel => {
+  var channel = channel.guild.channels.find(channel => channel.name === "channel_logging");
+  channel.send({embed: {
+    color: 16726088,
+    description: "Channel (" + channel.name + ") was deleted!",
+  }});
 });
 
 client.on('guildMemberAdd', member => {
+  var channel = member.guild.channels.find(channel => channel.name === "user_logs");
+  channel.send({embed: {
+    color: 3447003,
+    description: "A new member (" + member.user.username + ") has joined!",
+  }});
 });
 
 client.on('guildMemberRemove', member => {
-});
-
-client.on('userUpdate', (oldmember, newmember) => {
-});
-
-client.on('messageReactionAdd', (reaction, usr) => {
-});
-
-client.on('messageReactionRemove', (reaction, usr) => {
-});
-
-client.on('guildMemberUpdate', (oldmember, newmember) => {
+  var channel = member.guild.channels.find(channel => channel.name === "user_logs");
+  channel.send({embed: {
+    color: 16726088,
+    description: "Member <@" + member.id + "> has left!",
+  }});
 });
 
 client.on('guildBanAdd', (guild, member) => {
+  var channel = guild.channels.find(channel => channel.name === "case_logs");
+  channel.send({embed: {
+    color: 16726088,
+    description: "Member <@" + member.id + "> has been banned!",
+  }});
 });
 
 client.on('guildBanRemove', (guild, member) => {
-});
+  var channel = guild.channels.find(channel => channel.name === "user_logs");
+  channel.send({embed: {
+    color: 16726088,
+    description: "Member <@" + member.id + "> ban revoked",
+  }});
 
-client.on("guildCreate", guild => {
-});
-
-client.on("guildDelete", guild => {
+  var channel = guild.channels.find(channel => channel.name === "case_logs");
+  channel.send({embed: {
+    color: 16726088,
+    description: "Member <@" + member.id + "> ban revoked",
+  }});
 });
 
 client.login('MyToken');
