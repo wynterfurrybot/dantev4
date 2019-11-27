@@ -5,20 +5,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "user",
-  password: "password",
-  database: "dante"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-})
-
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
@@ -62,16 +48,16 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 });
 
 client.on('channelCreate', channel => {
-  var channel = channel.guild.channels.find(channel => channel.name === "channel_logging");
-  channel.send({embed: {
+  var c = channel.guild.channels.find(c => c.name === "channel_logging");
+  c.send({embed: {
     color: 3447003,
     description: "A new channel (" + channel.name + ") was created!",
   }});
 });
 
 client.on('channelDelete', channel => {
-  var channel = channel.guild.channels.find(channel => channel.name === "channel_logging");
-  channel.send({embed: {
+  var c = channel.guild.channels.find(c => c.name === "channel_logging");
+  c.send({embed: {
     color: 16726088,
     description: "Channel (" + channel.name + ") was deleted!",
   }});
