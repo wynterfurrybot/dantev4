@@ -1,4 +1,5 @@
 import discord
+import random
 from datetime import datetime
 from discord.utils import get
 async def msg(message, x, p, self):
@@ -16,3 +17,15 @@ async def msg(message, x, p, self):
                 return
             embed.set_thumbnail(url = "http://d.facdn.net/art/olypixandstuff/1265692624/1265692624.olypixandstuff_1263408058.sapphwolf_snowballfight2.png")
             await msg.channel.send(embed = embed)
+
+    if message == p + "advent":
+        items = ["Chocolate Reindeer", "Chocolate Snowflake", "Chocolate Elf", "Chocolate Santa", "Chocolate Christmas Tree"]
+        today = datetime.today()
+
+        if today.month == 12 and today.day <= 25:
+            days = 25 - int(today.day)
+            await msg.author.send("There is " + days + " day(s) left until christmas!")
+            await msg.author.send("You got a " + str(random.choice(items)))
+
+        else:
+            await msg.author.send("It is not december yet - or is past christmas!")
