@@ -25,7 +25,7 @@ client.on("messageDelete", (messageDelete) => {
 
 channel.send({embed: {
   color: 16726088,
-  description: "A message sent by " + messageDelete.author.username + " was removed! \n\nContent: \n" + messageDelete.content ,
+  description: "A message sent by " + messageDelete.author.username + " was removed! \n\nContent: \n" + messageDelete.content + "\n\nChannel: <#" + messageDelete.channel.id + ">" ,
 }});
 
 });
@@ -43,7 +43,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
   var channel = newMessage.guild.channels.find(channel => channel.name === "message_logs");
   channel.send({embed: {
     color: 3447003,
-    description: "A message sent by " + newMessage.author.username + " was edited! \n\nOld message: \n" + oldMessage.content + "\nNew message: \n" + newMessage.content,
+    description: "A message sent by " + newMessage.author.username + " was edited! \n\nOld message: \n" + oldMessage.content + "\nNew message: \n" + newMessage.content + "\n\nChannel: <#" + newMessage.channel.id + ">",
   }});
 });
 
