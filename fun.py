@@ -35,6 +35,24 @@ async def msg(message, x, p, self):
             embed.set_thumbnail(url = "https://pm1.narvii.com/6362/398e5e2edeed52fc23d9e85cbbbbe6e5b3951635_hq.jpg")
             await msg.channel.send(embed = embed)
 
+    if message.startswith(p + "flop"):
+        for member in x.mentions:
+            print(member)
+            embed = discord.Embed(title = "Floppp!", description = "<@" + str(msg.author.id) + "> has flopped on <@" + str(member.id) + ">!" , color=0x00ff00)
+            if member.id == msg.author.id:
+                return
+            embed.set_thumbnail(url = "https://i.redd.it/snul7u43bsm11.jpg")
+            await msg.channel.send(embed = embed)
+
+    if message.startswith(p + "nap"):
+        for member in x.mentions:
+            print(member)
+            embed = discord.Embed(title = "Zzz!", description = "<@" + str(msg.author.id) + "> has decided to fall asleep on <@" + str(member.id) + ">!" , color=0x00ff00)
+            if member.id == msg.author.id:
+                return
+            embed.set_thumbnail(url = "https://i.imgur.com/mZo6DnU.png")
+            await msg.channel.send(embed = embed)
+
     if message.startswith(p + "cuddle"):
         for member in x.mentions:
             print(member)
