@@ -1,5 +1,7 @@
-# dante-4.0
+# dante v4.0
 Dante 4.0, made out of python and JS
+
+Rewrite of dante-beta
 
 Made on a CC-BY license.
 
