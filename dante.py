@@ -11,6 +11,13 @@ class MyClient(discord.Client):
 
         prefix = "!"
         message.content = message.content.lower()
+        mentions = message.mentions
+        if len(mentions) > 3:
+            if not message.author.bot:
+                if message.content.startswith("!"):
+                    await message.delete()
+                    await message.channel.send("<@" + str(message.author.id) + "> Too many mentions!")
+                    return
         fun = __import__("fun")
         await fun.msg(str(message.content), message, prefix, self)
         info = __import__("info")
@@ -24,4 +31,4 @@ class MyClient(discord.Client):
                 await message.delete()
 
 client = MyClient()
-client.run('MYTOKEN')
+client.run('MyToken')
