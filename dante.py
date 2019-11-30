@@ -17,7 +17,7 @@ class MyClient(discord.Client):
         await info.msg(str(message.content), message, prefix, self)
         mod = __import__("mod")
         await mod.msg(str(message.content), message, prefix, self)
-        christmas = __import__("christmas.py")
+        christmas = __import__("christmas")
         await christmas.msg(str(message.content), message, prefix, self)
         if not message.author.bot:
             if message.content.startswith("!"):
