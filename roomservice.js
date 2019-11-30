@@ -14,7 +14,7 @@ const fc = new Discord.Client();
 
 fc.on('ready', () => {
     console.log(`Logged in as ${fc.user.tag}!`.green);
-    fc.user.setActivity(`Beta 4.0 | prefix = !`);
+    fc.user.setActivity(`v4.0 | prefix = !`);
 });
 
 var regex = RegExp(/[^a-zA-Z\d\s:]/g);
