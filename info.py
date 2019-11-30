@@ -10,14 +10,18 @@ async def msg(message, x, p, self):
     #If not, we can execute commands, such as this simple ping!
 
     if message == p + "info":
-        embed = discord.Embed(title = "Info", description = 'Made by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
+        embed = discord.Embed(title = "Info", description = 'Made by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nBeta testers: Kyrpto the superdog, Tyler Furrison, Alex Malebogh, Jessa, The Floof Hotel Staff Team & Users\n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
         await msg.channel.send(embed = embed)
 
     if message == p + "help":
-            embed = discord.Embed(title = "Info", description = 'Commands: https://hastebin.com/uyofapalab.sql \nMade by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
+            embed = discord.Embed(title = "Info", description = 'Commands: https://hastebin.com/xoyijikeja.sql\nMade by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
             await msg.channel.send(embed = embed)
 
-    if message.startswith(p + "s"):
+    if message == p + "invite":
+            embed = discord.Embed(title = "Invite", description = 'Invite: https://discordapp.com/oauth2/authorize?client_id=548269826020343809&scope=bot&permissions=93190\nMade by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
+            await msg.channel.send(embed = embed)
+
+    if message == p + "s":
         embed = discord.Embed(title=msg.guild.name, color=0x00ff00)
         embed.add_field(name="Owner", value=msg.guild.owner, inline=False)
         embed.add_field(name="Date of creation", value=msg.guild.created_at.__format__('%A, %d. %B %Y @ %H:%M:%S'), inline=False)
