@@ -26,6 +26,16 @@ async def msg(message, x, p, self):
             embed.set_thumbnail(url = "https://image.freepik.com/free-photo/judge-gavel-hammer-justice-law-concept_43403-625.jpg")
             await channel.send(embed = embed)
 
+    if message.startswith(p + "clear"):
+        mess = message.split(" ")
+        mess[1] = int(mess[1]) + 1
+        if int(mess[1]) > 100:
+            mess[1] = 100
+        if int(mess[1]) < 2:
+            mess[1] = 2
+        await msg.channel.purge(limit= int(mess[1]))
+        channel = get(x.guild.channels, name="case_logs", type=discord.ChannelType.text)
+        await channel.send(str(mess[1]) + " messages removed from #" + msg.channel.name)
 
     if message.startswith(p + "kick"):
         channel = get(x.guild.channels, name="case_logs", type=discord.ChannelType.text)
