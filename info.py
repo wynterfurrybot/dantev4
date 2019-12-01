@@ -14,7 +14,7 @@ async def msg(message, x, p, self):
         await msg.channel.send(embed = embed)
 
     if message == p + "help":
-            embed = discord.Embed(title = "Info", description = 'Commands: https://hastebin.com/amanexeded.sql\nMade by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
+            embed = discord.Embed(title = "Info", description = 'Commands: https://hastebin.com/ifevasetiy.sql\nMade by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
             await msg.channel.send(embed = embed)
 
     if message == p + "invite":
