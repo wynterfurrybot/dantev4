@@ -24,7 +24,7 @@ async def msg(message, x, p, self):
 
         if today.month == 12 and today.day <= 25:
             days = 25 - int(today.day)
-            await msg.author.send("There is " + days + " day(s) left until christmas!")
+            await msg.author.send("There is " + str(days) + " day(s) left until christmas!")
             await msg.author.send("You got a " + str(random.choice(items)))
 
         else:
