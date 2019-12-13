@@ -16,8 +16,6 @@ s - shows server info
 
 u - shows user info
 
-ping - shows ping
-
 ## Moderation
 
 **ALL MODERATION IN V4.0 DOES NOT SEND A LOG TO THE USER, BUT INSTEAD TO #case_logs**
