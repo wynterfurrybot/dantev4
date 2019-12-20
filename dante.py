@@ -26,6 +26,9 @@ class MyClient(discord.Client):
         await mod.msg(str(message.content), message, prefix, self)
         christmas = __import__("christmas")
         await christmas.msg(str(message.content), message, prefix, self)
+        food = __import__("foodanddrink")
+        await food.msg(str(message.content), message, prefix, self)
+        print("food and drink")
         if not message.author.bot:
             if message.content.startswith("!"):
                 await message.delete()
