@@ -28,6 +28,10 @@ function get(msg, item, id, callback) {
 					callback(":pineapple:");
 				}
 
+				else if (item === "!sandwich" || item === "!steak" || item === "!pizza"){
+					callback("thanks for ordering a " + item.replace("!","") + "!");
+				}
+
 
 
 
@@ -41,3 +45,4 @@ function get(msg, item, id, callback) {
 module.exports = {
   get: get
 }
+
