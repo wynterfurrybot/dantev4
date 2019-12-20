@@ -86,6 +86,10 @@ vodka - order a vodka
 
 pineapples - order pineapples
 
+steak - order steak
+
+pizza - order pizza
+
 whiskey - order whiskey
 
 martini - order a martini
