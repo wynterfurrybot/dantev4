@@ -14,7 +14,7 @@ const fc = new Discord.Client();
 
 fc.on('ready', () => {
     console.log(`Logged in as ${fc.user.tag}!`.green);
-    fc.user.setActivity(`v4.0 | prefix = !`);
+    fc.user.setActivity(`Eating Pi | !help`);
 });
 
 var regex = RegExp(/[^a-zA-Z\d\s:]/g);
@@ -58,7 +58,7 @@ fc.on('guildMemberAdd', member => {
 	}
 
   if(member.guild.id != "462041783438934036") return;
-	member.send("Welcome to The Floof Hotel! \n\nJust so you know, we operate a scrict no robot policy here! \n\nTo verify you're not one, please go to https://floofhotel.com/verify.php?id=" + member.id);
+	member.send("Welcome to The Floof Hotel! \n\nJust so you know, we operate a scrict no robot policy here! \n\nTo verify you're not one, please go to https://verify.furrycentr.al/?id=" + member.id);
 })
 
 fc.on('guildMemberUpdate', (oldmem, newmem) => {
@@ -150,7 +150,7 @@ if(regex.test(newmem.user.username) && oldmem.user.username != newmem.user.usern
 	roles.forEach(function(role){
 		if (role.id === "462042250612965386" && hasmember === false)
 		{
-			fc.channels.fetch("629056060803645453").then(channel => channel.send("<@" + newmem.id + ">, Welcome, welcome! We hope you enjoy your stay at The Floof Hotel!  *hands room card* \n\nYour room number is " + Math.floor(Math.random() * 5670) + "\n\nOn the desk is a free :cookie:, should you need us at any point, feel free to ping a member of staff or ask in <#629052614985777162> \n\nFeel free to tell us about you and your fursona in <#552957610899275776>"));
+			fc.channels.fetch("629056060803645453").then(channel => channel.send("<@" + newmem.id + ">, Welcome, welcome! We hope you enjoy your stay at The Floof Hotel!  *hands room card* \n\nYour room number is " + Math.floor(Math.random() * 5670) + "\n\nOn the desk is a free :cookie:, should you need us at any point, feel free to ping a member of staff! Should you have any feedback about anything, feel free to visit <#681616342733815825>! \n\nFeel free to tell us about you and your fursona in <#552957610899275776>"));
 
 			fc.channels.fetch("629056060803645453").then(channel => channel.send("<@&463088144292511764> Please welcome the above user!"));
 
@@ -165,6 +165,20 @@ if(regex.test(newmem.user.username) && oldmem.user.username != newmem.user.usern
 
 	})
 
+})
+
+
+fc.on('messageUpdate', (msg, newmsg) => {
+
+if(msg.channel.id === "717430439396245577")
+	{
+
+		// On receive message, (Given string `msg`) from channel #awoo
+if (!/^(\*|_)*awo+f?(!|\*|_)*( ?(:3|<3|owo|uwu))?( ?â¤ï¸)?(\*|_)*$/ui.test(newmsg.content)) {
+newmsg.delete();
+newmsg.author.send("I see you.. No " + msg.content + ", only awoo!");
+}
+	}
 })
 
 fc.on('message', msg => {
@@ -188,28 +202,19 @@ fc.on('message', msg => {
       msg.channel.send("<@" + msg.author.id + ">, I've reposted your advertisement to <#629073904882810910> - it shall be displayed for 3 days. \n\n<@&462043912169586699>")
     }
 
-	if(msg.channel.id === "475003135220383744")
+	if(msg.channel.id === "717430439396245577")
 	{
 
 		// On receive message, (Given string `msg`) from channel #awoo
-if (!/^(\*|_)*awo+f?(!|\*|_)*( ?(:3|<3|owo|uwu))?( ?❤️)?(\*|_)*$/ui.test(msg.content)) {
+if (!/^(\*|_)*awo+f?(!|\*|_)*( ?(:3|<3|owo|uwu))?( ?â¤ï¸)?(\*|_)*$/ui.test(msg.content)) {
 msg.delete();
 msg.author.send("No " + msg.content + ", only awoo!");
 }
 	}
 
-	else{
-		 var drinks = menu.get(msg, msg.content, msg.author.id, item => {
-			 if(item === "Not a drink"){return;}
-			 else{
-			 msg.delete();
-			 msg.channel.send("<@" + msg.author.id + "> , " + item);
-			 }
-		 })
-	}
 
 
 });
 
 
-fc.login('MyToken');
+fc.login('YourTokenHere');
