@@ -8,7 +8,8 @@ async def msg(message, x, p, self):
         return
     #If not, we can execute commands, such as this simple ping!
     if message == p + "ping":
-        embed = discord.Embed(title = "Pong!", description = '___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
+        ping = self.latency * 1000
+        embed = discord.Embed(title = "Pong!", description = '___Took {0}'.format(round(ping, 1)) + "ms___" , color=0x00ff00)
         await msg.channel.send(embed = embed)
 
     if message == "f":
@@ -158,12 +159,6 @@ async def msg(message, x, p, self):
             embed.set_thumbnail(url = "https://d.facdn.net/art/zaezar/1502813432/1502813432.zaezar_glomp.png")
             await msg.channel.send(embed = embed)
 
-    if message.startswith(p + "cookie"):
-        for member in x.mentions:
-            print(member)
-            embed = discord.Embed(title = "Cooooooooookieesss!", description = "<@" + str(msg.author.id) + "> has given <@" + str(member.id) + "> a cookie!" , color=0x00ff00)
-            embed.set_thumbnail(url = "https://cdn.shopify.com/s/files/1/0043/8471/8938/products/154360576926714891_812x.jpg?v=1555127662")
-            await msg.channel.send(embed = embed)
 
     if message.startswith(p + "lick"):
         for member in x.mentions:

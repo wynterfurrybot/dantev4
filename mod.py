@@ -11,6 +11,26 @@ async def msg(message, x, p, self):
     if hasperms == False:
         return
 
+    if message.startswith(p + "hackban"):
+        if not msg.author.guild_permissions.ban_members:
+            hasperms = False
+        if not hasperms:
+            return
+        params = message.split()
+        bannedusers = 0
+        for users in params:
+            if users == "!hackban":
+                print("no user")
+            else:
+                bannedusers = bannedusers +1
+                print(users)
+                user = await self.fetch_user(int(users))
+                await msg.guild.ban(user)
+        channel = get(x.guild.channels, name="case_logs", type=discord.ChannelType.text)
+        embed = discord.Embed(title = "Ban!", description = "<@" + str(msg.author.id) + "> has hackbanned " + str(bannedusers) + " users!\n" + message , color=0x00ff00)
+        embed.set_thumbnail(url = "https://image.freepik.com/free-photo/judge-gavel-hammer-justice-law-concept_43403-625.jpg")
+        await channel.send(embed = embed)
+
     if message.startswith(p + "ban"):
         if not msg.author.guild_permissions.ban_members:
             hasperms = False
