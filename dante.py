@@ -28,9 +28,11 @@ class MyClient(discord.Client):
         await christmas.msg(str(message.content), message, prefix, self)
         food = __import__("foodanddrink")
         await food.msg(str(message.content), message, prefix, self)
+        nsfw = __import__("nsfw")
+        await nsfw.msg(str(message.content), message, prefix, self)
         if not message.author.bot:
             if message.content.startswith("!"):
                 await message.delete()
 
 client = MyClient()
-client.run('MyToken')
+client.run('YourTokenHere')
