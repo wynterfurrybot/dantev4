@@ -20,6 +20,8 @@ u - shows user info
 
 **ALL MODERATION IN V4.0 DOES NOT SEND A LOG TO THE USER, BUT INSTEAD TO #case_logs**
 
+hackban - bans a user by ID (said user can be banned even if they're not in the server) - accepts multiple IDS
+
 ban - bans a user
 
 kick - kicks a user
@@ -38,7 +40,6 @@ hug - hugs a user
 
 glomp - glomps a user
 
-cookie - gives a user a cookie
 
 lick - licks a user
 
@@ -78,6 +79,12 @@ advent - Works from 1st dec to 25th dec - Get a chocolate piece from the advent 
 
 ## Room Service
 
+menu - show a menu
+
+cookie - order a cookie
+
+sandwich - order a sandwich 
+
 cola - order a coke
 
 beer - order a beer
@@ -90,12 +97,24 @@ steak - order steak
 
 pizza - order pizza
 
+muffin - order a muffin
+
 whiskey - order whiskey
 
 martini - order a martini
+
+pinacolada - order a pina colada
 
 rum - order rum
 
 tea - order tea
 
 coffee - order coffee
+
+## NSFW Commands
+
+yiff - yiff a user
+
+suck - suck off a user
+
+breed - impregnate a user
