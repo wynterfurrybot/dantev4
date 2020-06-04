@@ -31,9 +31,9 @@ async def msg(message, x, p, self):
             embed.set_thumbnail(url = "https://freeiconshop.com/wp-content/uploads/edd/cross-flat.png")
             await msg.author.send(embed = embed)
             return
-        if member.id == msg.author.id:
-            return
         for member in x.mentions:
+            if member.id == msg.author.id:
+                return
             print(member)
             embed = discord.Embed(title = "GIVE ME YOUR CUBS!", description = "<@" + str(msg.author.id) + "> has impregnated <@" + str(member.id) + ">!" , color=0x00ff00)
             embed.set_thumbnail(url = "https://us.rule34.xxx//images/364/3db9b8b409f5100aafc62f6352d31db1c60f3c64.png")
