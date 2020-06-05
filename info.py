@@ -9,12 +9,18 @@ async def msg(message, x, p, self):
         return
     #If not, we can execute commands, such as this simple ping!
 
+    cmd = message.split()
+    validcommands = ["!info", "!help", "!invite", "!s", "!u"]
+
+    if not cmd[0].lower() in validcommands:
+        return
+
     if message == p + "info":
         embed = discord.Embed(title = "Info", description = 'Made by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nBeta testers: Kyrpto the superdog, Tyler Furrison, Alex Malebogh, Jessa, The Floof Hotel Staff Team & Users\n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
         await msg.channel.send(embed = embed)
 
     if message == p + "help":
-            embed = discord.Embed(title = "Info", description = 'Commands: https://hastebin.com/ifevasetiy.sql\nMade by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
+            embed = discord.Embed(title = "Info", description = 'Commands: https://github.com/dantefurrybot/dantev4/blob/beta/help.md\nMade by: Darkmane Arweinyd \nWith help by: Alex Malebogh \n\nPing: ___Took {0}'.format(round(self.latency, 1)) + "ms___" , color=0x00ff00)
             await msg.channel.send(embed = embed)
 
     if message == p + "invite":
