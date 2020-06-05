@@ -28,7 +28,7 @@ async def msg(message, x, p, self):
         await msg.channel.send("<@" + str(msg.author.id) + "> no u")
 
     cmd = message.split()
-    validcommands = ["!hug", "!glomp", "!ick", "!slap", "!nuzzle", "!rubs", "!boop", "!pat", "!throwdict", "!bite", "!bap", "!howl", "!growl", "!cuddle", "!snuggle", "!flop", "!nap", "!blep", "!rawr"]
+    validcommands = ["!hug", "!hugs", "!glomp", "!ick", "!slap", "!nuzzle", "!rubs", "!boop", "!pat", "!throwdict", "!bite", "!bap", "!howl", "!growl", "!cuddle", "!snuggle", "!flop", "!nap", "!blep", "!rawr"]
 
     if not cmd[0].lower() in validcommands:
         return
