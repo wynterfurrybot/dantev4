@@ -8,6 +8,12 @@ async def msg(message, x, p, self):
         return
     #If not, we can execute commands, such as this simple ping!
 
+    cmd = message.split()
+    validcommands = ["!yiff", "!breed", "!suck"]
+
+    if not cmd[0].lower() in validcommands:
+        return
+
     if message.startswith(p + "yiff"):
         if not msg.channel.is_nsfw():
             embed = discord.Embed(title = "Not A NSFW channel!", description = "The channel you just ran the command in is not NSFW." , color=0x00ff00)
