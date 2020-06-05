@@ -38,7 +38,7 @@ f - pays respects
 
 x - doubt
 
-# Note: F and X are not typical commands. They are ran by saying "f" or "x" in the chat. 
+### Note: F and X are not typical commands. They are ran by saying "f" or "x" in the chat. 
 
 hug - hugs a user
 
