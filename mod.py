@@ -11,6 +11,12 @@ async def msg(message, x, p, self):
     if hasperms == False:
         return
 
+    cmd = message.split()
+    validcommands = ["!hackban", "!ban", "!kick", "!mute", "!warn", "!clear"]
+
+    if not cmd[0].lower() in validcommands:
+        return
+
     if message.startswith(p + "hackban"):
         if not msg.author.guild_permissions.ban_members:
             hasperms = False

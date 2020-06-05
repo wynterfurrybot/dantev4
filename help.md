@@ -36,10 +36,15 @@ clear (x) - clears a channel of (x) messages - EG: !clear 50
 
 f - pays respects
 
+x - doubt
+
+### Note: F and X are not typical commands. They are ran by saying "f" or "x" in the chat. 
+
 hug - hugs a user
 
-glomp - glomps a user
+hugs - alias of hug
 
+glomp - glomps a user
 
 lick - licks a user
 
@@ -59,7 +64,7 @@ bite - softly nibble someone's ears
 
 bap - bap a user with a newspaper
 
-howl - let out a big awoo!
+howl - let out a big awoo! - you can also mention a user to howl at them!
 
 growl - let out a soft growl!
 
@@ -69,7 +74,11 @@ snuggle - snuggle a user
 
 flop - flop on someone
 
-nap - nap on someone
+nap - take a nap - you can also mention a user to nap on them!
+
+blep - do a blep
+
+rawr - RAWR X3
 
 ## Christmas
 

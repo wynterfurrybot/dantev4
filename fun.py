@@ -27,6 +27,12 @@ async def msg(message, x, p, self):
     if message == "kill yourself dante":
         await msg.channel.send("<@" + str(msg.author.id) + "> no u")
 
+    cmd = message.split()
+    validcommands = ["!hug", "!hugs", "!glomp", "!lick", "!slap", "!nuzzle", "!rubs", "!boop", "!pat", "!throwdict", "!bite", "!bap", "!howl", "!growl", "!cuddle", "!snuggle", "!flop", "!nap", "!blep", "!rawr"]
+
+    if not cmd[0].lower() in validcommands:
+        return
+
     if message.startswith(p + "hug"):
         for member in x.mentions:
             print(member)
@@ -37,15 +43,23 @@ async def msg(message, x, p, self):
             await msg.channel.send(embed = embed)
 
     if message.startswith(p + "flop"):
+        if not x.mentions:
+            embed = discord.Embed(title = "Floppp!", description = "<@" + str(msg.author.id) + "> has flopped on the ground!", color=0x00ff00)
+            embed.set_thumbnail(url = "https://i.redd.it/snul7u43bsm11.jpg")
+            await msg.channel.send(embed = embed)
         for member in x.mentions:
             print(member)
             embed = discord.Embed(title = "Floppp!", description = "<@" + str(msg.author.id) + "> has flopped on <@" + str(member.id) + ">!" , color=0x00ff00)
             if member.id == msg.author.id:
-                return
+                embed.description = "<@" + str(msg.author.id) + "> has flopped on the ground!"
             embed.set_thumbnail(url = "https://i.redd.it/snul7u43bsm11.jpg")
             await msg.channel.send(embed = embed)
 
     if message.startswith(p + "nap"):
+        if not x.mentions:
+            embed = discord.Embed(title = "Zzz!", description = "<@" + str(msg.author.id) + "> has took a nap!", color=0x00ff00)
+            embed.set_thumbnail(url = "https://i.imgur.com/mZo6DnU.png")
+            await msg.channel.send(embed = embed)
         for member in x.mentions:
             print(member)
             embed = discord.Embed(title = "Zzz!", description = "<@" + str(msg.author.id) + "> has decided to fall asleep on <@" + str(member.id) + ">!" , color=0x00ff00)
@@ -117,19 +131,54 @@ async def msg(message, x, p, self):
             embed.set_thumbnail(url = "https://i.ytimg.com/vi/dNrwSeMY-bk/hqdefault.jpg")
             await msg.channel.send(embed = embed)
 
-    if message == p + "rubs":
-        embed = discord.Embed(title = "Belly rubs!", description = "<@" + str(msg.author.id) + "> demands belly rubs!" , color=0x00ff00)
-        embed.set_thumbnail(url = "https://cdn1.cloudcanvas.website/media/sites/119/2018/01/26063531/Belly-rub.jpg")
+    if message.startswith(p + "rubs"):
+        if not x.mentions:
+            embed = discord.Embed(title = "Belly rubs!", description = "<@" + str(msg.author.id) + "> demands belly rubs!" , color=0x00ff00)
+            embed.set_thumbnail(url = "https://cdn1.cloudcanvas.website/media/sites/119/2018/01/26063531/Belly-rub.jpg")
+            await msg.channel.send(embed = embed)
+
+        else:
+            for member in x.mentions:
+                embed = discord.Embed(title = "Belly rubs!", description = "<@" + str(msg.author.id) + "> has given <@" + str(member.id) +  "> belly rubs!" , color=0x00ff00)
+                if member.id == msg.author.id:
+                    embed.description = "<@" + str(msg.author.id) + "> demands belly rubs!"
+                embed.set_thumbnail(url = "https://cdn1.cloudcanvas.website/media/sites/119/2018/01/26063531/Belly-rub.jpg")
+                await msg.channel.send(embed = embed)
+
+    if message.startswith(p + "howl"):
+        if not x.mentions:
+            embed = discord.Embed(title = "AwooooOooooo!", description = "<@" + str(msg.author.id) + "> has let out a big howl!" , color=0x00ff00)
+            embed.set_thumbnail(url = "https://d.facdn.net/art/windwo1f/1484617505/1484617505.windwo1f_wintie_s_howl.png")
+            await msg.channel.send(embed = embed)
+
+        else:
+            for member in x.mentions:
+                embed = discord.Embed(title = "AwooooOooooo!", description = "<@" + str(msg.author.id) + "> howls at <@" + str(member.id) + ">" , color=0x00ff00)
+                embed.set_thumbnail(url = "https://d.facdn.net/art/windwo1f/1484617505/1484617505.windwo1f_wintie_s_howl.png")
+                await msg.channel.send(embed = embed)
+
+    if message.startswith(p + "growl"):
+        if not x.mentions:
+            embed = discord.Embed(title = "A light growl was heard!", description = "<@" + str(msg.author.id) + "> has let out a growl!" , color=0x00ff00)
+            embed.set_thumbnail(url = "https://pm1.narvii.com/6219/8faceb03db01e5c8e64b87dc8fa6d3e18a08011e_hq.jpg")
+            await msg.channel.send(embed = embed)
+
+        else:
+            for member in x.mentions:
+                embed = discord.Embed(title = "A light growl was heard!", description = "<@" + str(msg.author.id) + "> growls at <@" + str(member.id) +">! Better stay away!" , color=0x00ff00)
+                if member.id == msg.author.id:
+                    embed.description = "<@" + str(msg.author.id) + "> has let out a growl!"
+                embed.set_thumbnail(url = "https://pm1.narvii.com/6219/8faceb03db01e5c8e64b87dc8fa6d3e18a08011e_hq.jpg")
+                await msg.channel.send(embed = embed)
+
+    if message == p + "blep":
+        embed = discord.Embed(title = "Blep!", description = "<@" + str(msg.author.id) + "> has done a blep!" , color=0x00ff00)
+        embed.set_thumbnail(url = "https://i.redd.it/o49rv5hjacm21.png")
         await msg.channel.send(embed = embed)
 
-    if message == p + "howl":
-        embed = discord.Embed(title = "AwooooOooooo!", description = "<@" + str(msg.author.id) + "> has let out a big howl!" , color=0x00ff00)
-        embed.set_thumbnail(url = "https://d.facdn.net/art/windwo1f/1484617505/1484617505.windwo1f_wintie_s_howl.png")
-        await msg.channel.send(embed = embed)
-
-    if message == p + "growl":
-        embed = discord.Embed(title = "A light growl was heard!", description = "<@" + str(msg.author.id) + "> has let out a growl!" , color=0x00ff00)
-        embed.set_thumbnail(url = "https://pm1.narvii.com/6219/8faceb03db01e5c8e64b87dc8fa6d3e18a08011e_hq.jpg")
+    if message == p + "rawr":
+        embed = discord.Embed(title = "X3!", description = "<@" + str(msg.author.id) + "> lets out a cute little rawr!" , color=0x00ff00)
+        embed.set_thumbnail(url = "https://d.facdn.net/art/yereren/1492210128/1492210128.yereren_ja.png")
         await msg.channel.send(embed = embed)
 
     if message.startswith(p + "boop"):

@@ -6,6 +6,12 @@ async def msg(message, x, p, self):
     if msg.author == self.user:
         print('Not a user message.')
         return
+
+    cmd = message.split()
+    validcommands = ["!menu", "!cookie", "!pineapple", "!sandwich", "!steak", "!pizza", "!muffin", "!whiskey", "!vodka", "!martini", "!beer", "!rum", "!pinacolada", "!coke", "!tea", "!coffee"]
+
+    if not cmd[0].lower() in validcommands:
+        return
     #If not, we can execute commands, such as this simple ping!
     if message.startswith(p + "menu"):
         embed = discord.Embed(title = "Menu!", description = "**__Food__** \nCookie, Pineapple, Sandwich, Steak, Pizza, Muffin \n\n**__Alcohol__** \nWhiskey, Vodka, Martini, Beer, Rum, Pina Colada \n\n**__Non-alcoholic drinks__** \nCoke, Tea, Coffee" , color=0x00ff00)
