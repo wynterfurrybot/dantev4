@@ -42,6 +42,8 @@ x - doubt
 
 hug - hugs a user
 
+hugs - alias of hug
+
 glomp - glomps a user
 
 lick - licks a user
