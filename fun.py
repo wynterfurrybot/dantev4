@@ -28,10 +28,19 @@ async def msg(message, x, p, self):
         await msg.channel.send("<@" + str(msg.author.id) + "> no u")
 
     cmd = message.split()
-    validcommands = ["!hug", "!hugs", "!glomp", "!lick", "!slap", "!nuzzle", "!rubs", "!boop", "!pat", "!throwdict", "!bite", "!bap", "!howl", "!growl", "!cuddle", "!snuggle", "!flop", "!nap", "!blep", "!rawr"]
+    validcommands = ["!kiss","!hug", "!hugs", "!glomp", "!lick", "!slap", "!nuzzle", "!rubs", "!boop", "!pat", "!throwdict", "!bite", "!bap", "!howl", "!growl", "!cuddle", "!snuggle", "!flop", "!nap", "!blep", "!rawr"]
 
     if not cmd[0].lower() in validcommands:
         return
+
+    if message.startswith(p + "kiss"):
+        for member in x.mentions:
+            print(member)
+            embed = discord.Embed(title = "Kiss!", description = "<@" + str(msg.author.id) + "> has given <@" + str(member.id) + "> a kiss on the cheek!" , color=0x00ff00)
+            if member.id == msg.author.id:
+                return
+            embed.set_thumbnail(url = "https://external-preview.redd.it/Au9jfafmj8FSCgkzvu1odMbw7tLRaye5hWXv5z-Ezus.png?auto=webp&s=bdd727bc7ae09d71521e6d8cec18ef1f69d0a207")
+            await msg.channel.send(embed = embed)
 
     if message.startswith(p + "hug"):
         for member in x.mentions:
