@@ -1,7 +1,7 @@
 import discord
 import importlib
-
 from discord.ext import commands
+
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -33,6 +33,7 @@ class MyClient(discord.Client):
         if not message.author.bot:
             if message.content.startswith("!"):
                 await message.delete()
+
 
 client = MyClient()
 client.run('YourTokenHere')
