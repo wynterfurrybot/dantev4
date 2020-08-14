@@ -1,6 +1,3 @@
-const menu = require('./menu.js');
-console.log('Done. Read menu.');
-
 const talkedRecently = new Set();
 var colors = require('colors');
 
