@@ -13,5 +13,8 @@ Fully open sourced, made with help from Alex Malebogh
 
 # Branches:
 
-Beta - for development use only, these updates may not be finished, or ever come to the master branch.
 Master - for stable releases.
+
+# Note:
+
+Dantè is soon being replaced with Wynter, an up to date port of Dantè v4.1 that'll be consitently maintained. The link will be posted here when that happens.
